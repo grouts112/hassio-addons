@@ -164,7 +164,8 @@ MQTT_HOST="$(jq --raw-output '.mqtt_host' $CONFIG_PATH)"
 MQTT_USER="$(jq --raw-output '.mqtt_user' $CONFIG_PATH)"
 MQTT_PASS="$(jq --raw-output '.mqtt_password' $CONFIG_PATH)"
 MQTT_TOPIC="$(jq --raw-output '.mqtt_topic' $CONFIG_PATH)"
-PROTOCOL="$(jq --raw-output '.protocol' $CONFIG_PATH)"
+PROTOCOL1="$(jq --raw-output '.protocol1' $CONFIG_PATH)"
+PROTOCOL2="$(jq --raw-output '.protocol2' $CONFIG_PATH)"
 FREQUENCY="$(jq --raw-output '.frequency' $CONFIG_PATH)"
 GAIN="$(jq --raw-output '.gain' $CONFIG_PATH)"
 OFFSET="$(jq --raw-output '.frequency_offset' $CONFIG_PATH)"
@@ -175,7 +176,8 @@ echo "MQTT Host =" $MQTT_HOST
 echo "MQTT User =" $MQTT_USER
 echo "MQTT Password =" $MQTT_PASS
 echo "MQTT Topic =" $MQTT_TOPIC
-echo "RTL_433 Protocol =" $PROTOCOL
+echo "RTL_433 Protocol1 =" $PROTOCOL1
+echo "RTL_433 Protocol2 =" $PROTOCOL2
 echo "RTL_433 Frequency =" $FREQUENCY
 echo "RTL_433 Gain =" $GAIN
 echo "RTL_433 Frequency Offset =" $OFFSET
@@ -188,7 +190,7 @@ echo $AUTO_D | /usr/bin/mosquitto_pub -h $MQTT_HOST -u $MQTT_USER -P $MQTT_PASS 
 
 #set -x  ## uncomment for MQTT logging...
 
-/usr/local/bin/rtl_433 -F json -R $PROTOCOL -f $FREQUENCY -g $GAIN -p $OFFSET | while read line
+/usr/local/bin/rtl_433 -F json -R $PROTOCOL1 -R $PROTOCOL2 -f $FREQUENCY -g $GAIN -p $OFFSET | while read line
 do
   DEVICE="$(echo $line | jq --raw-output '.model' | tr -s ' ' '_')" # replace ' ' with '_'
 #  echo $DEVICE
