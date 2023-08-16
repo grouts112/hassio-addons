@@ -1,6 +1,6 @@
 {
   "name": "RTL_433 to MQTT Bridge - DarwinData",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "slug": "rtl4332mqtt",
   "description": "433MHz RF to MQTT Bridge based on RTL_SDR/RTL_433 for RTL2832U based DVB-T USB tuners",
   "url": "https://github.com/DarwinData/hassio-addons/tree/master/rtl4332mqtt",
@@ -9,6 +9,7 @@
   "map": ["config:rw", "ssl"],
   "usb": true,
   "host_network": "False",
+  "init": "false",
   "arch": [
     "aarch64",
     "amd64",
