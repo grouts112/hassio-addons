@@ -22,7 +22,7 @@
     "mqtt_user": "",
     "mqtt_password": "",
     "mqtt_topic": "homeassistant/tele/RF433",
-    "protocol1": 41
+    "protocol1": 41,
     "protocol2": 109,
     "frequency": 433920000,
     "gain": 60,
