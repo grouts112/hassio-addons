@@ -164,6 +164,7 @@ MQTT_HOST="$(jq --raw-output '.mqtt_host' $CONFIG_PATH)"
 MQTT_USER="$(jq --raw-output '.mqtt_user' $CONFIG_PATH)"
 MQTT_PASS="$(jq --raw-output '.mqtt_password' $CONFIG_PATH)"
 MQTT_TOPIC="$(jq --raw-output '.mqtt_topic' $CONFIG_PATH)"
+RTL_433_CONF_FILE="$(jq --raw-output '.rtl_433_conf_file' $CONFIG_PATH)"
 #PROTOCOL="$(jq --raw-output '.protocol' $CONFIG_PATH)"
 #FREQUENCY="$(jq --raw-output '.frequency' $CONFIG_PATH)"
 #GAIN="$(jq --raw-output '.gain' $CONFIG_PATH)"
@@ -182,7 +183,7 @@ echo "MQTT Topic =" $MQTT_TOPIC
 
 #set -x  ## uncomment for MQTT logging...
 
-/usr/local/bin/rtl_433 -F json | while read line
+/usr/local/bin/rtl_433 -F json -f $RTL_433_CONF_FILE | while read line
 do
   DEVICE="$(echo $line | jq --raw-output '.model' | tr -s ' ' '_')" # replace ' ' with '_'
   DEVICEID="$(echo $line | jq --raw-output '.id' | tr -s ' ' '_')"
