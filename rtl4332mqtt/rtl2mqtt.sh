@@ -4,6 +4,7 @@
 
 # Author: Chris Kacerguis <chriskacerguis@gmail.com>
 # Modification for hass.io add-on: James Fry
+# customised for dual protocols: grouts112
 
 # Below are rtl_433 options and the supported device protocols as of 25/10/2017
 # **NOTE that the protocol number is NOT persistent and seems to change**
