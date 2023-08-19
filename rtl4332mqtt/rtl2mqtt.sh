@@ -184,7 +184,7 @@ echo "RTL_433 Frequency =" $FREQUENCY
 
 #set -x  ## uncomment for MQTT logging...
 
-/usr/local/bin/rtl_433 -F json -C si -R 41 -R 109 -f $FREQUENCY | while read line
+/usr/bin/rtl_433 -F json -C si -R 41 -R 109 -f 433920000 | while read line
 do
   DEVICE="$(echo $line | jq --raw-output '.model' | tr -s ' ' '_')" # replace ' ' with '_'
   DEVICEID="$(echo $line | jq --raw-output '.id' | tr -s ' ' '_')"
