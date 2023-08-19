@@ -1,6 +1,6 @@
 {
   "name": "RTL_433 to MQTT Bridge - grouts112",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "slug": "rtl4332mqtt",
   "description": "433MHz RF to MQTT Bridge based on RTL_SDR/RTL_433 for RTL2832U based DVB-T USB tuners",
   "url": "https://github.com/grouts112/hassio-addons/edit/master/rtl4332mqtt/",
@@ -22,11 +22,11 @@
     "mqtt_user": "",
     "mqtt_password": "",
     "mqtt_topic": "homeassistant/tele/RF433/sensor",
-    "protocol1": 41,
-    "protocol2": 109,
-    "frequency": 433920000,
-    "gain": 60,
-    "frequency_offset": 350
+    "protocol1": "41",
+    "protocol2": "109",
+    "frequency": "433920000",
+    "gain": "60",
+    "frequency_offset": "350"
   },
   "schema":
   {
