@@ -22,10 +22,8 @@
     "mqtt_user": "",
     "mqtt_password": "",
     "mqtt_topic": "homeassistant/tele/RF433/sensor",
-    "protocol": 109,
-    "frequency": 433920000,
-    "gain": 90,
-    "frequency_offset": 350
+    "rtl_433_conf_file": "",
+    "retain": false
   },
   "schema":
   {
@@ -33,9 +31,6 @@
     "mqtt_user": "str",
     "mqtt_password": "str",
     "mqtt_topic": "str",
-    "protocol": "int",
-    "frequency": "int",
-    "gain": "int",
-    "frequency_offset": "int"
+    "rtl_433_conf_file": "str?"
    }
 }
