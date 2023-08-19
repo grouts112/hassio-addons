@@ -166,7 +166,7 @@ MQTT_USER="$(jq --raw-output '.mqtt_user' $CONFIG_PATH)"
 MQTT_PASS="$(jq --raw-output '.mqtt_password' $CONFIG_PATH)"
 MQTT_TOPIC="$(jq --raw-output '.mqtt_topic' $CONFIG_PATH)"
 #RTL_433_CONF_FILE="$(jq --raw-output '.rtl_433_conf_file' $CONFIG_PATH)"
-PROTOCOL2="$(jq --raw-output '.protocol2' $CONFIG_PATH)"
+#PROTOCOL2="$(jq --raw-output '.protocol2' $CONFIG_PATH)"
 FREQUENCY="$(jq --raw-output '.frequency' $CONFIG_PATH)"
 GAIN="$(jq --raw-output '.gain' $CONFIG_PATH)"
 OFFSET="$(jq --raw-output '.frequency_offset' $CONFIG_PATH)"
@@ -177,14 +177,14 @@ echo "MQTT Host =" $MQTT_HOST
 echo "MQTT User =" $MQTT_USER
 echo "MQTT Password =" $MQTT_PASS
 echo "MQTT Topic =" $MQTT_TOPIC
-echo "RTL_433 Protocol =" $PROTOCOL2
+#echo "RTL_433 Protocol =" $PROTOCOL2
 echo "RTL_433 Frequency =" $FREQUENCY
 #echo "RTL_433 Gain =" $GAIN
 #echo "RTL_433 Frequency Offset =" $OFFSET
 
 #set -x  ## uncomment for MQTT logging...
 
-/usr/local/bin/rtl_433 -F json -C si -R 41 -R $PROTOCOL2 -f $FREQUENCY | while read line
+/usr/local/bin/rtl_433 -F json -C si -R 41 -R 109 -f $FREQUENCY | while read line
 do
   DEVICE="$(echo $line | jq --raw-output '.model' | tr -s ' ' '_')" # replace ' ' with '_'
   DEVICEID="$(echo $line | jq --raw-output '.id' | tr -s ' ' '_')"
