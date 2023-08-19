@@ -36,7 +36,7 @@
     "mqtt_topic": "str",
     "protocol1": "str",
     "protocol2": "str",
-    "frequency: "str",
+    "frequency": "str",
     "gain": "str",
     "frequency_offset": "str"
    }
